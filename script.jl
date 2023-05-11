@@ -93,7 +93,7 @@ end
 
 function fastq_format(outfile, pos, a::Vector{Char}, name, qual="I")
     if length(a) > 0 && !only_n(a)
-        write(outfile, "$(name):$(pos-length(a)+1)\n$(String(a))\n+\n$(qual^length(a))\n")
+        write(outfile, "@$(name):$(pos-length(a)+1)\n$(String(a))\n+\n$(qual^length(a))\n")
         flush(outfile)
     end
 end
